@@ -6,7 +6,7 @@
 # NO WARRANTY WHATSOEVER
 #
 
-# https://github.com/Kaurin/gaming/tree/master/DarkSouls
+# https://github.com/Kaurin/DSSS
 
 
 $username = "$env:UserName"
