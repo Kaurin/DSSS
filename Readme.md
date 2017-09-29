@@ -26,6 +26,7 @@ Install:
 
 Normal usage (if installed as explained above)
 * **ENSURE THAT DARK SOULS IS NOT RUNNING**
+* **Also, kill the dsss.ps1 window if it's running**
 * Right-click any .dsbak file, and you should see an option to recover it
 
 ## How it works
@@ -41,6 +42,7 @@ In normal operation (via the right-click menu), it will first make a backup of t
 
 ## Restrictions
 Confirmed working for non-GFWL version (current on Steam as of 2017/09)
+
 It only creates 1 backup per minute because of two main reasons:
 * Dark Souls would sometimes autosave (change the save file) multiple times a minute
 * Every save file change consists of two OS-level changes. Without the 1min restriction, every autosave would result in two backup files.
