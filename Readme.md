@@ -9,6 +9,9 @@ You can potentially get more souls / get better without this script, and just pl
 * Disable Steam Cloud Sync (google it)
 * You need to set `Set-ExecutionPolicy Unrestricted` for powershell scripts to work. **This is a potential hazard to your PC.**
 
+## Installation
+Copy dsss.ps1 and dsbr.ps1 to any directory. I usually put them in the Dark Souls save folder, because I need to keep that open anyway to restore saves: `C:\Users\<YOUR_USERNAME_HERE>\Documents\NBGI\DarkSouls`
+
 ## Usage
 
 #### "Dark Souls Save Scummer" script (dsss.ps1)
@@ -37,6 +40,7 @@ If ran as-is, it will install the "right-click" menu to support restoring .dsbak
 In normal operation (via the right-click menu), it will first make a backup of the current save, then replace the right-clicked backup to the savefile
 
 ## Restrictions
+Confirmed working for non-GFWL version (current on Steam as of 2017/09)
 It only creates 1 backup per minute because of two main reasons:
 * Dark Souls would sometimes autosave (change the save file) multiple times a minute
 * Every save file change consists of two OS-level changes. Without the 1min restriction, every autosave would result in two backup files.
