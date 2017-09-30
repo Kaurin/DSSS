@@ -28,10 +28,10 @@ Normal usage (if installed as explained above)
 * **ENSURE THAT DARK SOULS IS NOT RUNNING**
 * **Also, kill the dsss.ps1 window if it's running**
 * Right-click any .dsbak file, and you should see various options:
- * "Recover Dark Souls backup" : Recovers the .sl2.dsbak file in place of the save
- * "Mark as SAFE": Appends "-SAFE" to the file. Example: `2017-09-30__13-33-DRAKS0005-SAFE.sl2.dsbak`
- * "Mark as BOSS": Appends "-BOSS" to the file. Example: `2017-09-28__05-39-DRAKS0005-BOSS.sl2.dsbak`
- * "Delete old DS backups": Deletes all but 3 autosaves and 5 "SAFE" saves. Ignores "BOSS" saves.
+    * "Recover Dark Souls backup" : Recovers the .sl2.dsbak file in place of the save
+    * "Mark as SAFE": Appends "-SAFE" to the file. Example: `2017-09-30__13-33-DRAKS0005-SAFE.sl2.dsbak`
+    * "Mark as BOSS": Appends "-BOSS" to the file. Example: `2017-09-28__05-39-DRAKS0005-BOSS.sl2.dsbak`
+    * "Delete old DS backups": Deletes all but 3 autosaves and 5 "SAFE" saves. Ignores "BOSS" saves.
 
 ## How it works
 
