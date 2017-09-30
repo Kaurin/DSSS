@@ -8,6 +8,7 @@
 
 # https://github.com/Kaurin/DSSS
 
+$ErrorActionPreference = "Stop"
 
 $username = "$env:UserName"
 $folder = "C:\Users\$username\Documents\NBGI\DarkSouls"
@@ -28,7 +29,7 @@ function global:makeBackup($filePath)
   {
     $folder = Split-Path $filePath
     $filename = Split-Path $filePath -Leaf
-    $datetime = $(get-date -f yyyy-MM-dd__hh-mm)
+    $datetime = $(get-date -f yyyy-MM-dd__HH-mm)
     if (! (Test-Path $folder\$datetime-$filename.dsbak))
       {
         Copy-Item $filePath "$folder\$datetime-$filename.dsbak"
