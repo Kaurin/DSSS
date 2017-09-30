@@ -9,6 +9,11 @@ You can potentially get more souls / get better without this script, and just pl
 * Disable Steam Cloud Sync (google it)
 * You need to set `Set-ExecutionPolicy Unrestricted` for powershell scripts to work. **This is a potential hazard to your PC.**
 
+## Download
+Zip files of releases can be found on this [page][releases]
+
+  [releases]: https://github.com/Kaurin/DSSS/releases "DSSS Releases"
+
 ## Installation
 Copy dsss.ps1 and dsbr.ps1 to any directory. I usually put them in the Dark Souls save folder, because I need to keep that open anyway to restore saves: `C:\Users\<YOUR_USERNAME_HERE>\Documents\NBGI\DarkSouls`
 
