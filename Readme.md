@@ -17,7 +17,7 @@ Copy dsss.ps1 and dsbr.ps1 to any directory. I usually put them in the Dark Soul
 #### "Dark Souls Save Scummer" script (dsss.ps1)
 * Right click -> Open in powershell.
 * You should see the powershell window. Keep it Open
-* CTRL+C a few times once done to close the window, or click the "X" in the corner
+* CTRL+C in the powershell window to exit the script, or click the "X" in the corner
 
 #### Optional installation and usage of the "Dark Souls Backup Recovery" script (dsbr.ps1)
 
@@ -27,7 +27,11 @@ Install:
 Normal usage (if installed as explained above)
 * **ENSURE THAT DARK SOULS IS NOT RUNNING**
 * **Also, kill the dsss.ps1 window if it's running**
-* Right-click any .dsbak file, and you should see an option to recover it
+* Right-click any .dsbak file, and you should see various options:
+ * "Recover Dark Souls backup" : Recovers the .sl2.dsbak file in place of the save
+ * "Mark as SAFE": Appends "-SAFE" to the file. Example: `2017-09-30__13-33-DRAKS0005-SAFE.sl2.dsbak`
+ * "Mark as BOSS": Appends "-BOSS" to the file. Example: `2017-09-28__05-39-DRAKS0005-BOSS.sl2.dsbak`
+ * "Delete old DS backups": Deletes all but 3 autosaves and 5 "SAFE" saves. Ignores "BOSS" saves.
 
 ## How it works
 
@@ -38,11 +42,11 @@ After the save file changes (finishes changing), this script creates a timestamp
 #### Dark Souls Backup Recovery
 If ran as-is, it will install the "right-click" menu to support restoring .dsbak files.
 
-In normal operation (via the right-click menu), it will first make a backup of the current save, then replace the right-clicked backup to the savefile
+See above for usage and description
 
 ## Restrictions
 Confirmed working for non-GFWL version (current on Steam as of 2017/09)
 
 It only creates 1 backup per minute because of two main reasons:
-* Dark Souls would sometimes autosave (change the save file) multiple times a minute
+* Dark Souls would sometimes autosave multiple times a minute
 * Every save file change consists of two OS-level changes. Without the 1min restriction, every autosave would result in two backup files.
