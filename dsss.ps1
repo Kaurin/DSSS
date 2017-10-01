@@ -8,6 +8,7 @@
 
 # https://github.com/Kaurin/DSSS
 
+# Exit on any error
 $ErrorActionPreference = "Stop"
 
 $username = "$env:UserName"
@@ -24,21 +25,18 @@ Write-Host "
 *****     `$env:UserDomain or `$env:ComputerName in the script
 *****"
 
-
 function global:makeBackup($filePath)
   {
     $folder = Split-Path $filePath
     $filename = Split-Path $filePath -Leaf
     $datetime = $(get-date -f yyyy-MM-dd__HH-mm)
+    # This prevents file getting created more than 1 min, because our files have a 1-min resolution
     if (! (Test-Path $folder\$datetime-$filename.dsbak))
       {
         Copy-Item $filePath "$folder\$datetime-$filename.dsbak"
-        Write-Host "Backup made: $folder\$datetime-$filename.dsbak"
+        Write-Host "$datetime - Backup made: $folder\$datetime-$filename.dsbak"
       }
-    else
-      {
-        Write-Host "Backup for this minute already exists. Not backing up"
-      }
+    else { Write-Host "$datetime - Backup for this minute already exists. Not backing up" }
   }
 
 
@@ -60,6 +58,7 @@ $changeAction = [scriptblock]::Create('
 Register-ObjectEvent $Watcher "Changed" -Action $changeAction
 
 # Infinite loop. We can clean up the "event catcher" on ctrl+c
+# Notice we don't do any logic here. The background event listener does all the work
 Write-Host
 Write-Host "To exit, press CTL+C (a few times)"
 Try {
