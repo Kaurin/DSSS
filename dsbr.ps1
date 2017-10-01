@@ -13,8 +13,8 @@ Param(
   [string]$Operation
 )
 
+# Exit on any error
 $ErrorActionPreference = "Stop"
-
 
 # If we don't provide any arguments, assume we want to "install" the Right-click menu
 # for the "Dark Souls Backup Restore" (DSBR)
@@ -66,7 +66,6 @@ if ( $OriginalDumpFileName -notmatch "\.sl2\.dsbak$" )
      exit
    }
 
-
 # Get the original SaveFileName full path
 $SaveFileFullPath = (dir $pathOnly\*.sl2).FullName
 $SaveFileName = Split-Path $SaveFileFullPath -leaf
@@ -77,8 +76,7 @@ IF([string]::IsNullOrEmpty($SaveFileName)) {
    exit
 }
 
-
-$datetime = $(get-date -f yyyy-MM-dd__HH-mm-ss.mmmm)
+$datetime = $(get-date -f yyyy-MM-dd__HH-mm__ss.mmmm)
 
 # Function that restores a right-clicked backup
 function doRestore {
@@ -86,7 +84,7 @@ function doRestore {
   # example: 2017-09-29__07-15-05.15_DRAKS0005.sl2.origbak
   $SaveFileNameBackupFile = $($SaveFileName -replace '(.*)\.sl2$', "_rotatesave_$datetime`_`$1.orig.sl2.dsbak")
 
-  # Copy the save to a backup
+  # Back up current save
   Copy-Item "$SaveFileFullPath" "$pathOnly\$SaveFileNameBackupFile"
 
   # Copy the Desired dump in place of the save file
@@ -120,7 +118,7 @@ function deleteAllBut {
             }
         }
     }
-  catch { }  # Do nothing if we fail to truncate the range
+  catch { return }  # Do nothing if we fail to truncate the range
 }
 
 # This function deletes old backups except for 3 latest ones
@@ -160,7 +158,12 @@ function doMarkBoss {
 # Simply decide which function(s) to execute based on the $Operation param
 switch ($Operation)
     {
-        "Restore" { doRestore }
+        "Restore"
+          {
+            doRestore
+            # Start Dark Souls "Prepare to die" edition
+            start steam://run/211420
+          }
         "MarkSafe" { doMarkSafe }
         "MarkBoss" { doMarkBoss }
         "DeleteOld"
